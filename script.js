@@ -1,5 +1,31 @@
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const menuToggle = document.getElementById('menu-toggle');
+const menuPanel = document.getElementById('menu-panel');
+
+if (menuToggle && menuPanel) {
+    const setMenu = open => {
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuPanel.hidden = !open;
+    };
+
+    menuToggle.addEventListener('click', () => {
+        setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    document.addEventListener('click', event => {
+        if (!menuToggle.contains(event.target) && !menuPanel.contains(event.target)) {
+            setMenu(false);
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            setMenu(false);
+        }
+    });
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', event => {
         const target = document.querySelector(anchor.getAttribute('href'));

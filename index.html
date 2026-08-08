@@ -13,11 +13,25 @@
     <nav class="navbar" aria-label="Primary navigation">
         <div class="container nav-container">
             <a class="logo" href="#home" aria-label="Yunxi home">Yunxi</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#highlights">Notes</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="nav-menu">
+                <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="menu-panel">
+                    <span class="menu-icon" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span>Menu</span>
+                </button>
+                <div class="menu-panel" id="menu-panel" role="menu" hidden>
+                    <p class="menu-title">Features</p>
+                    <ul>
+                        <li role="none"><span role="menuitem" aria-disabled="true">Projects <em>Coming soon</em></span></li>
+                        <li role="none"><span role="menuitem" aria-disabled="true">Notes <em>Coming soon</em></span></li>
+                        <li role="none"><span role="menuitem" aria-disabled="true">Gallery <em>Coming soon</em></span></li>
+                        <li role="none"><span role="menuitem" aria-disabled="true">Guestbook <em>Coming soon</em></span></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -41,36 +55,8 @@
                     <p class="description">Hi, I'm <strong>Yunxi</strong>. I enjoy exploring technology, shaping small web projects, and turning new ideas into things I can share, test, and improve.</p>
                     <div class="hero-cta" aria-label="Hero actions">
                         <a href="#contact" class="btn btn-primary">Say hello</a>
-                        <a href="#highlights" class="btn btn-secondary">See what I value</a>
+                        <a href="https://github.com/newhumanwithbrain-alt" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">See my GitHub</a>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="highlights" class="highlights reveal" aria-labelledby="highlights-title">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="eyebrow">Small notes</p>
-                    <h2 id="highlights-title">The way I like to grow</h2>
-                    <p>Simple habits guide my projects: stay curious, build gently, and keep experimenting.</p>
-                </div>
-
-                <div class="highlight-grid">
-                    <article class="highlight-card learning">
-                        <span class="card-number">01</span>
-                        <h3>Learning</h3>
-                        <p>I follow questions until they become clearer, one concept and one project at a time.</p>
-                    </article>
-                    <article class="highlight-card building">
-                        <span class="card-number">02</span>
-                        <h3>Building</h3>
-                        <p>I like making practical pages and tools that feel clean, useful, and easy to understand.</p>
-                    </article>
-                    <article class="highlight-card experimenting">
-                        <span class="card-number">03</span>
-                        <h3>Experimenting</h3>
-                        <p>I test new ideas with patience, using each attempt as a chance to improve the next one.</p>
-                    </article>
                 </div>
             </div>
         </section>

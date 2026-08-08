@@ -113,36 +113,118 @@ a {
     color: var(--calm-blue);
 }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    list-style: none;
-    padding: 6px;
-    background: rgba(255, 255, 255, 0.48);
-    border: 1px solid var(--line);
-    border-radius: 24px;
+.nav-menu {
+    position: relative;
 }
 
-.nav-links a {
+.menu-toggle {
     display: inline-flex;
-    min-height: 38px;
     align-items: center;
-    padding: 0 16px;
-    border-radius: 18px;
-    text-decoration: none;
-    color: var(--muted-text);
+    gap: 10px;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 22px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.62);
+    color: var(--deep-text);
+    font-family: inherit;
     font-size: 0.94rem;
-    font-weight: 660;
-    transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+    font-weight: 680;
+    cursor: pointer;
+    transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
-.nav-links a:hover,
-.nav-links a:focus-visible {
-    color: var(--deep-text);
-    background: rgba(255, 255, 255, 0.72);
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: var(--soft-shadow);
     transform: translateY(-1px);
     outline: none;
+}
+
+.menu-icon {
+    display: grid;
+    gap: 4px;
+    width: 16px;
+}
+
+.menu-icon span {
+    display: block;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--calm-blue);
+    transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+.menu-panel {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 12px);
+    width: min(288px, 78vw);
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    background: var(--glass-strong);
+    backdrop-filter: blur(18px);
+    box-shadow: var(--shadow);
+}
+
+.menu-panel[hidden] {
+    display: none;
+}
+
+.menu-title {
+    margin-bottom: 10px;
+    padding-left: 6px;
+    color: #3f86ac;
+    font-size: 0.74rem;
+    font-weight: 780;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.menu-panel ul {
+    display: grid;
+    gap: 6px;
+    list-style: none;
+}
+
+.menu-panel span[role="menuitem"] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 18px;
+    background: rgba(232, 244, 248, 0.5);
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    font-weight: 660;
+    cursor: default;
+}
+
+.menu-panel em {
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: rgba(126, 179, 212, 0.18);
+    color: #3f86ac;
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 740;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
 }
 
 .hero {
@@ -331,96 +413,15 @@ h3 {
     box-shadow: var(--soft-shadow);
 }
 
-.highlights {
-    padding: 78px 0 92px;
-}
-
-.section-heading {
-    max-width: 660px;
-    margin-bottom: 34px;
-}
-
-.section-heading h2,
 .contact-copy h2 {
     margin-bottom: 16px;
     font-size: clamp(2.2rem, 5vw, 4.2rem);
     font-weight: 740;
 }
 
-.section-heading p,
 .contact-copy p {
     color: var(--muted-text);
     font-size: 1.08rem;
-}
-
-.highlight-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-}
-
-.highlight-card {
-    min-height: 260px;
-    padding: 28px;
-    border: 1px solid rgba(126, 179, 212, 0.2);
-    border-radius: 34px;
-    background: rgba(255, 255, 255, 0.56);
-    box-shadow: 0 18px 56px rgba(80, 133, 166, 0.08);
-    position: relative;
-    overflow: hidden;
-    transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
-}
-
-.highlight-card::before {
-    content: "";
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    right: -48px;
-    top: -54px;
-    border-radius: 50%;
-    background: rgba(184, 221, 232, 0.42);
-}
-
-.highlight-card:hover {
-    transform: translateY(-6px);
-    background: rgba(255, 255, 255, 0.78);
-    box-shadow: 0 24px 70px rgba(80, 133, 166, 0.14);
-}
-
-.card-number {
-    display: inline-flex;
-    margin-bottom: 54px;
-    color: rgba(22, 48, 68, 0.34);
-    font-size: 0.9rem;
-    font-weight: 780;
-}
-
-.highlight-card h3 {
-    margin-bottom: 14px;
-    font-size: 1.55rem;
-    font-weight: 740;
-}
-
-.highlight-card p {
-    color: var(--muted-text);
-}
-
-.learning {
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.72), rgba(232, 244, 248, 0.64));
-}
-
-.building {
-    transform: translateY(20px);
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.64), rgba(184, 221, 232, 0.42));
-}
-
-.building:hover {
-    transform: translateY(14px);
-}
-
-.experimenting {
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.7), rgba(216, 236, 243, 0.58));
 }
 
 .contact {
@@ -578,31 +579,13 @@ h3 {
         margin-right: auto;
     }
 
-    .section-heading {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .section-heading .eyebrow,
     .contact-copy .eyebrow {
         margin-left: auto;
         margin-right: auto;
     }
 
-    .highlight-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .highlight-card,
-    .building,
-    .building:hover {
-        min-height: auto;
-        transform: none;
-    }
-
-    .card-number {
-        margin-bottom: 36px;
+    .contact-copy {
+        text-align: center;
     }
 }
 
@@ -615,20 +598,9 @@ h3 {
         padding: 12px 0;
     }
 
-    .nav-container {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .nav-links {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .nav-links a {
+    .menu-toggle {
         min-height: 40px;
-        padding: 0 12px;
+        padding: 0 14px;
         font-size: 0.88rem;
     }
 
@@ -666,17 +638,12 @@ h3 {
         width: 100%;
     }
 
-    .highlights,
     .contact {
         padding: 58px 0;
     }
 
-    .highlight-card,
     .contact-shell {
         border-radius: 28px;
-    }
-
-    .contact-shell {
         padding: 22px;
     }
 
