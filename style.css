@@ -306,7 +306,7 @@ body {
 }
 
 .contact-header {
-    margin-bottom: 3.5rem;
+    margin-bottom: 2rem;
 }
 
 .contact-header h2 {
@@ -325,119 +325,54 @@ body {
     margin: 0 auto;
 }
 
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    max-width: 960px;
-    margin: 0 auto;
-}
-
-.contact-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
-    padding: 1.5rem;
+/* Minimalist Icon-Only Buttons */
+.social-icons-wrapper {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 1.2rem;
-    text-decoration: none;
-    color: var(--text-dark);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
+    gap: 1.8rem;
+    margin-top: 2.5rem;
 }
 
-.contact-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.4), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.contact-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
-    border-color: rgba(102, 126, 234, 0.3);
-}
-
-.contact-card:hover::before {
-    opacity: 1;
-}
-
-.card-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
+.social-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f1f5f9;
     color: var(--text-dark);
-    transition: all 0.3s ease;
-    flex-shrink: 0;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Platform Specific Colors on Hover */
-.contact-card.github:hover .card-icon {
+.social-btn:hover {
+    transform: translateY(-8px) scale(1.08);
+    box-shadow: 0 18px 35px rgba(102, 126, 234, 0.25);
+}
+
+/* Hover Brand Colors */
+.social-btn.github:hover {
     background: #24292e;
     color: #ffffff;
+    border-color: #24292e;
 }
 
-.contact-card.discord:hover .card-icon {
+.social-btn.discord:hover {
     background: #5865F2;
     color: #ffffff;
+    border-color: #5865F2;
 }
 
-.contact-card.email:hover .card-icon {
+.social-btn.email:hover {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     color: #ffffff;
-}
-
-.card-info {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    flex-grow: 1;
-}
-
-.card-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-dark);
-}
-
-.card-detail {
-    font-size: 0.85rem;
-    color: var(--text-light);
-    font-weight: 500;
-}
-
-.card-action {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--gradient-start);
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-}
-
-.contact-card:hover .card-action {
-    opacity: 1;
-}
-
-.contact-card.copied {
-    border-color: #22c55e;
-    background: rgba(240, 253, 244, 0.9);
-}
-
-.contact-card.copied .card-action {
-    color: #16a34a;
+    border-color: transparent;
 }
 
 /* Footer */
@@ -496,4 +431,9 @@ body {
     .contact-header h2 {
         font-size: 2rem;
     }
-}
+
+    .social-btn {
+        width: 56px;
+        height: 56px;
+    }
+    }
