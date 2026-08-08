@@ -305,7 +305,11 @@ body {
     background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(102,126,234,0.03) 100%);
 }
 
-.contact h2 {
+.contact-header {
+    margin-bottom: 3.5rem;
+}
+
+.contact-header h2 {
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 1.2rem;
@@ -313,53 +317,127 @@ body {
     letter-spacing: -0.5px;
 }
 
-.contact > .container > p {
+.contact-header p {
     color: var(--text-light);
-    margin-bottom: 3.5rem;
     font-size: 1.15rem;
     font-weight: 500;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
-    flex-wrap: wrap;
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
 }
 
-.contact-link {
-    background: var(--bg-white);
-    color: var(--gradient-start);
-    padding: 1.3rem 2.5rem;
-    border-radius: 60px;
-    text-decoration: none;
-    font-weight: 700;
-    border: 2px solid var(--gradient-start);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+.contact-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 1.5rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    font-size: 1.05rem;
+    gap: 1.2rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
-.contact-link .icon {
-    font-size: 1.4rem;
+.contact-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.contact-link:hover {
+.contact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+.contact-card:hover::before {
+    opacity: 1;
+}
+
+.card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* Platform Specific Colors on Hover */
+.contact-card.github:hover .card-icon {
+    background: #24292e;
+    color: #ffffff;
+}
+
+.contact-card.discord:hover .card-icon {
+    background: #5865F2;
+    color: #ffffff;
+}
+
+.contact-card.email:hover .card-icon {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    color: white;
-    border-color: transparent;
-    transform: translateY(-5px);
-    box-shadow: 0 25px 60px rgba(102, 126, 234, 0.35);
+    color: #ffffff;
 }
 
-.contact-link:active {
-    transform: translateY(-2px);
+.card-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.card-detail {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.card-action {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gradient-start);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.contact-card:hover .card-action {
+    opacity: 1;
+}
+
+.contact-card.copied {
+    border-color: #22c55e;
+    background: rgba(240, 253, 244, 0.9);
+}
+
+.contact-card.copied .card-action {
+    color: #16a34a;
 }
 
 /* Footer */
@@ -410,25 +488,12 @@ body {
         gap: 2rem;
     }
 
-    .contact-links {
-        gap: 1.5rem;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contact-link {
-        padding: 1rem 2rem;
-        font-size: 0.95rem;
-        width: 100%;
-        max-width: 300px;
-    }
-
     .hero {
         padding: 4rem 0;
         min-height: auto;
     }
 
-    .contact h2 {
+    .contact-header h2 {
         font-size: 2rem;
     }
 }
