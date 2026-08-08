@@ -117,6 +117,122 @@ a {
     position: relative;
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lang-switcher {
+    position: relative;
+}
+
+.lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 14px;
+    border-radius: 22px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.62);
+    color: var(--deep-text);
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 720;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.lang-toggle:hover,
+.lang-toggle:focus-visible {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: var(--soft-shadow);
+    transform: translateY(-1px);
+    outline: none;
+}
+
+.lang-icon {
+    display: inline-flex;
+    color: var(--calm-blue);
+}
+
+.lang-current {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+}
+
+.lang-panel {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 12px);
+    width: min(260px, 78vw);
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    background: var(--glass-strong);
+    backdrop-filter: blur(18px);
+    box-shadow: var(--shadow);
+    z-index: 5;
+}
+
+.lang-panel[hidden] {
+    display: none;
+}
+
+.lang-panel ul {
+    display: grid;
+    gap: 6px;
+    list-style: none;
+}
+
+.lang-panel button[role="menuitem"] {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 11px 14px;
+    border: 0;
+    border-radius: 18px;
+    background: rgba(232, 244, 248, 0.5);
+    color: var(--muted-text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 660;
+    text-align: left;
+    cursor: pointer;
+    transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.lang-panel button[role="menuitem"]:hover,
+.lang-panel button[role="menuitem"]:focus-visible {
+    background: rgba(184, 221, 232, 0.7);
+    color: var(--deep-text);
+    transform: translateX(2px);
+    outline: none;
+}
+
+.lang-panel button[role="menuitem"][aria-checked="true"] {
+    background: rgba(126, 179, 212, 0.22);
+    color: var(--deep-text);
+}
+
+.lang-flag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: var(--calm-blue);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 760;
+    letter-spacing: 0.08em;
+}
+
 .menu-toggle {
     display: inline-flex;
     align-items: center;
