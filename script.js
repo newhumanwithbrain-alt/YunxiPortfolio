@@ -33,3 +33,24 @@ document.querySelectorAll('section').forEach(section => {
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(section);
 });
+
+// Discord Copy Username Functionality
+const discordCard = document.getElementById('discord-card');
+
+if (discordCard) {
+    discordCard.addEventListener('click', () => {
+        const username = discordCard.getAttribute('data-username');
+        navigator.clipboard.writeText(username).then(() => {
+            const actionText = discordCard.querySelector('.card-action');
+            const originalText = actionText.textContent;
+            
+            actionText.textContent = 'Copied! ✓';
+            discordCard.classList.add('copied');
+            
+            setTimeout(() => {
+                actionText.textContent = originalText;
+                discordCard.classList.remove('copied');
+            }, 2000);
+        });
+    });
+}
