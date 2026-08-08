@@ -299,14 +299,14 @@ body {
 
 /* Contact Section */
 .contact {
-    padding: 8rem 0;
+    padding: 6rem 0 8rem 0;
     text-align: center;
     position: relative;
     background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(102,126,234,0.03) 100%);
 }
 
 .contact-header {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .contact-header h2 {
@@ -325,54 +325,61 @@ body {
     margin: 0 auto;
 }
 
-/* Minimalist Icon-Only Buttons */
+/* Stylish Modern Icon Cards */
 .social-icons-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.8rem;
-    margin-top: 2.5rem;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .social-btn {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.icon-box {
+    width: 72px;
+    height: 72px;
+    border-radius: 22px;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-dark);
-    text-decoration: none;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
 }
 
-.social-btn:hover {
-    transform: translateY(-8px) scale(1.08);
-    box-shadow: 0 18px 35px rgba(102, 126, 234, 0.25);
+/* Brand Default Colors */
+.social-btn.github .icon-box { color: #24292e; }
+.social-btn.discord .icon-box { color: #5865F2; }
+.social-btn.email .icon-box { color: #667eea; }
+
+/* Dynamic Hover Effects */
+.social-btn:hover .icon-box {
+    transform: translateY(-10px) scale(1.05);
 }
 
-/* Hover Brand Colors */
-.social-btn.github:hover {
+.social-btn.github:hover .icon-box {
     background: #24292e;
     color: #ffffff;
-    border-color: #24292e;
+    box-shadow: 0 20px 40px rgba(36, 41, 46, 0.35);
 }
 
-.social-btn.discord:hover {
+.social-btn.discord:hover .icon-box {
     background: #5865F2;
     color: #ffffff;
-    border-color: #5865F2;
+    box-shadow: 0 20px 40px rgba(88, 101, 242, 0.35);
 }
 
-.social-btn.email:hover {
+.social-btn.email:hover .icon-box {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     color: #ffffff;
-    border-color: transparent;
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
 }
 
 /* Footer */
@@ -385,7 +392,7 @@ body {
     opacity: 0.9;
 }
 
-/* Responsive */
+/* Responsive Layout */
 @media (max-width: 1024px) {
     .hero-wrapper {
         gap: 3rem;
@@ -432,8 +439,18 @@ body {
         font-size: 2rem;
     }
 
-    .social-btn {
-        width: 56px;
-        height: 56px;
+    .social-icons-wrapper {
+        gap: 1.2rem;
+    }
+
+    .icon-box {
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+    }
+
+    .icon-box svg {
+        width: 26px;
+        height: 26px;
     }
     }
